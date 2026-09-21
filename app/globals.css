@@ -163,6 +163,9 @@
 }
 
 .gravity-os { background-size: cover; background-position: center; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif; color: white; }
+.snowfall { position: absolute; inset: 0; z-index: 1; overflow: hidden; pointer-events: none; }
+.snowfall span { position: absolute; top: -12px; border-radius: 999px; background: rgba(255,255,255,.82); box-shadow: 0 0 7px rgba(255,255,255,.55); animation: snow-fall linear infinite; }
+@keyframes snow-fall { 0% { transform: translate3d(0, -12px, 0); opacity: 0; } 12% { opacity: .8; } 88% { opacity: .65; } 100% { transform: translate3d(42px, 105vh, 0); opacity: 0; } }
 .topbar { position: absolute; inset: 0 0 auto; z-index: 30; height: 30px; display: flex; align-items: center; justify-content: space-between; padding: 0 16px; background: rgba(18, 20, 28, .38); backdrop-filter: blur(20px) saturate(1.4); box-shadow: 0 1px 0 rgba(255,255,255,.12); }
 .window { position: absolute; overflow: hidden; border-radius: 13px; background: rgba(30, 31, 39, .88); box-shadow: 0 25px 70px rgba(0,0,0,.42), 0 0 0 1px rgba(255,255,255,.18); transition: opacity .24s ease, transform .34s cubic-bezier(.2,.8,.2,1), filter .24s ease; }
 .window:not(.active) { filter: brightness(.78); }
