@@ -40,7 +40,7 @@ export default function GravityOS() {
   const [context, setContext] = useState<{x:number;y:number} | null>(null)
   const [windows, setWindows] = useState<WindowState[]>([])
   const [active, setActive] = useState<AppId | null>(null)
-  const [browserUrl, setBrowserUrl] = useState('https://www.google.com')
+  const [browserUrl, setBrowserUrl] = useState('https://gravityxfrogies.mooo.com/calculus/')
   const drag = useRef<{ id: AppId; dx: number; dy: number } | null>(null)
   const snowflakes = useMemo(() => Array.from({ length: 42 }, (_, index) => ({ id: index, left: (index * 37) % 100, delay: (index * 0.31) % 7, duration: 7 + (index % 6), size: 2 + (index % 4) })), [])
   useEffect(() => {
