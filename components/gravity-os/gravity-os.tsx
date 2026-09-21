@@ -35,24 +35,28 @@ function WindowContent({ id, browserUrl, setBrowserUrl }: { id: AppId; browserUr
 
 export default function GravityOS() {
   const [locked, setLocked] = useState(true)
-  const [now, setNow] = useState(new Date())
+  const [now, setNow] = useState<Date | null>(null)
   const [launcher, setLauncher] = useState(false)
   const [context, setContext] = useState<{x:number;y:number} | null>(null)
   const [windows, setWindows] = useState<WindowState[]>([])
   const [active, setActive] = useState<AppId | null>(null)
   const [browserUrl, setBrowserUrl] = useState('https://www.google.com')
   const drag = useRef<{ id: AppId; dx: number; dy: number } | null>(null)
-  useEffect(() => { const timer = setInterval(() => setNow(new Date()), 1000); return () => clearInterval(timer) }, [])
+  useEffect(() => {
+    setNow(new Date())
+    const timer = setInterval(() => setNow(new Date()), 1000)
+    return () => clearInterval(timer)
+  }, [])
   useEffect(() => { const move = (e: MouseEvent) => { if (!drag.current) return; const d = drag.current; setWindows(ws => ws.map(w => w.id === d.id ? { ...w, x: Math.max(8, e.clientX - d.dx), y: Math.max(32, e.clientY - d.dy) } : w)) }; const up = () => { drag.current = null }; window.addEventListener('mousemove', move); window.addEventListener('mouseup', up); return () => { window.removeEventListener('mousemove', move); window.removeEventListener('mouseup', up) } }, [])
-  const time = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-  const date = now.toLocaleDateString([], { weekday: 'long', month: 'long', day: 'numeric' })
+  const time = now?.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) ?? '--:--'
+  const date = now?.toLocaleDateString([], { weekday: 'long', month: 'long', day: 'numeric' }) ?? 'Loading date'
   const openApp = (id: AppId) => { setLauncher(false); setContext(null); setWindows(ws => ws.some(w => w.id === id) ? ws.map(w => w.id === id ? { ...w, minimized: false } : w) : [...ws, { id, x: 160 + ws.length * 26, y: 90 + ws.length * 20, width: id === 'games' ? 720 : 650, height: id === 'settings' ? 500 : 440 }]); setActive(id) }
   const closeApp = (id: AppId) => { setWindows(ws => ws.filter(w => w.id !== id)); setActive(a => a === id ? null : a) }
   const appInfo = (id: AppId) => apps.find(a => a.id === id)!
   const desktopApps = apps.slice(0, 3)
   return <main className="gravity-os relative h-dvh w-full overflow-hidden select-none" style={{ backgroundImage: `url(${wallpaper})` }} onContextMenu={(e) => { e.preventDefault(); setContext({x:e.clientX,y:e.clientY}) }} onClick={() => { if (context) setContext(null) }}>
     <div className="absolute inset-0 bg-black/10" />
-    <header className="topbar"><div className="flex items-center gap-4"><span className="font-semibold tracking-tight">GravityOS</span><span className="hidden text-xs text-white/75 sm:inline">Finder</span><span className="hidden text-xs text-white/75 sm:inline">File</span><span className="hidden text-xs text-white/75 sm:inline">View</span><span className="hidden text-xs text-white/75 sm:inline">Window</span></div><div className="flex items-center gap-3"><Wifi size={14}/><Volume2 size={14}/><BatteryCharging size={16}/><span className="text-xs font-medium">{time}</span><span className="hidden text-xs sm:inline">{now.toLocaleDateString([], { month: 'short', day: 'numeric' })}</span></div></header>
+    <header className="topbar"><div className="flex items-center gap-4"><span className="font-semibold tracking-tight">GravityOS</span><span className="hidden text-xs text-white/75 sm:inline">Finder</span><span className="hidden text-xs text-white/75 sm:inline">File</span><span className="hidden text-xs text-white/75 sm:inline">View</span><span className="hidden text-xs text-white/75 sm:inline">Window</span></div><div className="flex items-center gap-3"><Wifi size={14}/><Volume2 size={14}/><BatteryCharging size={16}/><span className="text-xs font-medium">{time}</span><span className="hidden text-xs sm:inline">{now?.toLocaleDateString([], { month: 'short', day: 'numeric' }) ?? '--'}</span></div></header>
     <section className="absolute left-5 top-16 flex flex-col gap-6" onClick={(e) => e.stopPropagation()}>{desktopApps.map(app => <AppIcon key={app.id} app={app} onClick={() => openApp(app.id)} />)}<button aria-label="Open Trash" className="group flex w-16 flex-col items-center gap-1.5"><span className="grid size-12 place-items-center rounded-[22%] bg-white/80 text-slate-500 shadow-lg ring-1 ring-white/50 transition group-hover:-translate-y-1"><Trash2 size={24}/></span><span className="text-[11px] font-medium text-white drop-shadow">Trash</span></button></section>
     <section className="pointer-events-none absolute inset-0">{windows.map(w => { const app = appInfo(w.id); const Icon = app.icon; return <article key={w.id} onClick={(e) => { e.stopPropagation(); setActive(w.id) }} className={`window pointer-events-auto ${active === w.id ? 'active' : ''} ${w.minimized ? 'minimized' : ''}`} style={{ left: w.x, top: w.y, width: `min(${w.width}px, calc(100vw - 24px))`, height: `min(${w.height}px, calc(100dvh - 110px))`, zIndex: active === w.id ? 20 : 10 }}><div className="titlebar" onMouseDown={(e) => { setActive(w.id); drag.current = { id: w.id, dx: e.clientX - w.x, dy: e.clientY - w.y } }}><div className="traffic"><button aria-label={`Close ${app.label}`} className="traffic-close" onClick={() => closeApp(w.id)}><X size={9}/></button><button aria-label={`Minimize ${app.label}`} className="traffic-min" onClick={() => setWindows(ws => ws.map(x => x.id === w.id ? {...x, minimized: true} : x))}><Minus size={9}/></button><button aria-label={`Maximize ${app.label}`} className="traffic-max"><Maximize2 size={8}/></button></div><div className="flex items-center gap-1.5 text-xs font-medium text-white/80"><Icon size={13}/>{app.label}</div><div className="w-16" /></div><div className="window-body"><WindowContent id={w.id} browserUrl={browserUrl} setBrowserUrl={setBrowserUrl}/></div><span className="resize-grip" /></article> })}</section>
     {launcher && <div className="launcher" onClick={(e) => e.stopPropagation()}><div className="mb-8 flex items-center justify-between"><div><p className="text-xs font-medium uppercase tracking-[.25em] text-white/60">Application space</p><h1 className="mt-1 text-3xl font-semibold tracking-tight">Launchpad</h1></div><div className="flex items-center gap-2 rounded-full bg-white/10 px-3 py-2 text-xs text-white/60"><Search size={14}/> Search apps</div></div><div className="grid grid-cols-3 gap-7 sm:grid-cols-5">{apps.map(app => <AppIcon key={app.id} app={app} size="large" onClick={() => openApp(app.id)} />)}</div></div>}
