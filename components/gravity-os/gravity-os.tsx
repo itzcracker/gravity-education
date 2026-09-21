@@ -16,7 +16,7 @@ const apps: AppDefinition[] = [
   { id: 'browser', label: 'Browser', icon: Globe2, color: 'from-sky-400 to-blue-600', image: 'https://i.ibb.co/qFkfMKBP/image-1.png' },
   { id: 'games', label: 'PS5', icon: Gamepad2, color: 'from-violet-400 to-indigo-600', image: 'https://upload.wikimedia.org/wikipedia/commons/9/91/PlayStation_App_Icon.jpg' },
   { id: 'minecraft', label: 'Minecraft', icon: Sparkles, color: 'from-pink-400 to-purple-500', image: 'https://upload.wikimedia.org/wikipedia/commons/f/fb/Minecraft-creeper-face.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original' },
-  { id: 'notes', label: 'Notes', icon: Sparkles, color: 'from-pink-400 to-purple-500' },
+  { id: 'notes', label: 'Notes', icon: NotebookPen, color: 'from-pink-400 to-purple-500', image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_Notes_icon.svg/3840px-Apple_Notes_icon.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail' },
   { id: 'settings', label: 'Settings', icon: Settings, color: 'from-slate-300 to-slate-500', image: 'https://upload.wikimedia.org/wikipedia/commons/archive/e/ea/20200720144619%21Settings_%28iOS%29.png' },
 ]
 
