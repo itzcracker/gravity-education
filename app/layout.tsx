@@ -3,9 +3,9 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'GravityOS — A desktop in orbit',
-  description: 'A polished browser-based desktop operating system experience.',
-  generator: 'v0.app',
+  title: 'GravityOS V1',
+  description: '',
+  generator: '',
   icons: {
     icon: [
       {
