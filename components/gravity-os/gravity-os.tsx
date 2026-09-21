@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import {
-  ChevronLeft, ChevronRight, Gamepad2, Globe2, Grid2X2, LockKeyhole, Maximize2, Minus, MonitorCog, NotebookPen, Plus, Power, RefreshCw, Search, Settings, SlidersHorizontal, Sparkles, X,
+  ChevronLeft, ChevronRight, Gamepad2, Globe2, Grid2X2, LockKeyhole, Maximize2, Minus, MonitorCog, NotebookPen, Plus, Power, RefreshCw, Search, Settings, SlidersHorizontal, Sparkles, X, HatGlasses,
 } from 'lucide-react'
 
 type AppId = 'browser' | 'games' | 'settings' | 'spotify' | 'minecraft' | 'notes'
@@ -13,7 +13,7 @@ type AppDefinition = { id: AppId; label: string; icon: typeof Globe2; color: str
 const wallpaper = 'https://plain-weur-prod-public.komododecks.com/202609/20/5P7wYjTD1GJZGxW6Fpoe/image.png'
 const apps: AppDefinition[] = [
   { id: 'spotify', label: 'Spotify', icon: NotebookPen, color: 'from-yellow-300 to-orange-400', image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Spotify_App_Logo.svg/3840px-Spotify_App_Logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail' },
-  { id: 'browser', label: 'Browser', icon: Globe2, color: 'from-sky-400 to-blue-600', image: 'https://i.ibb.co/qFkfMKBP/image-1.png' },
+  { id: 'browser', label: 'Browser', icon: HatGlasses, color: 'from-sky-400 to-blue-600', image: 'https://i.ibb.co/qFkfMKBP/image-1.png' },
   { id: 'games', label: 'PS5', icon: Gamepad2, color: 'from-violet-400 to-indigo-600', image: 'https://upload.wikimedia.org/wikipedia/commons/9/91/PlayStation_App_Icon.jpg' },
   { id: 'minecraft', label: 'Minecraft', icon: Sparkles, color: 'from-pink-400 to-purple-500', image: 'https://upload.wikimedia.org/wikipedia/commons/f/fb/Minecraft-creeper-face.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original' },
   { id: 'notes', label: 'Notes', icon: NotebookPen, color: 'from-pink-400 to-purple-500', image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_Notes_icon.svg/3840px-Apple_Notes_icon.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail' },
