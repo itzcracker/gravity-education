@@ -5,16 +5,16 @@ import {
   ChevronLeft, ChevronRight, Gamepad2, Globe2, Grid2X2, LockKeyhole, Maximize2, Minus, MonitorCog, NotebookPen, Plus, Power, RefreshCw, Search, Settings, SlidersHorizontal, Sparkles, X,
 } from 'lucide-react'
 
-type AppId = 'browser' | 'games' | 'settings' | 'notes' | 'photos'
+type AppId = 'browser' | 'games' | 'settings' | 'spotify' | 'minecraft'
 type WindowState = { id: AppId; x: number; y: number; width: number; height: number; minimized?: boolean; fullscreen?: boolean; restore?: { x: number; y: number; width: number; height: number } }
 
 const wallpaper = 'https://plain-weur-prod-public.komododecks.com/202609/20/5P7wYjTD1GJZGxW6Fpoe/image.png'
 const apps: { id: AppId; label: string; icon: typeof Globe2; color: string }[] = [
   { id: 'browser', label: 'Browser', icon: Globe2, color: 'from-sky-400 to-blue-600' },
-  { id: 'games', label: 'Game Center', icon: Gamepad2, color: 'from-violet-400 to-indigo-600' },
+  { id: 'games', label: 'PS5', icon: Gamepad2, color: 'from-violet-400 to-indigo-600' },
   { id: 'settings', label: 'Settings', icon: Settings, color: 'from-slate-300 to-slate-500' },
-  { id: 'notes', label: 'Notes', icon: NotebookPen, color: 'from-yellow-300 to-orange-400' },
-  { id: 'photos', label: 'Photos', icon: Sparkles, color: 'from-pink-400 to-purple-500' },
+  { id: 'spotify', label: 'Spotify', icon: NotebookPen, color: 'from-yellow-300 to-orange-400' },
+  { id: 'minecraft', label: 'Minecraft', icon: Sparkles, color: 'from-pink-400 to-purple-500' },
 ]
 
 function AppIcon({ app, onClick, size = 'normal' }: { app: typeof apps[number]; onClick: () => void; size?: 'normal' | 'large' }) {
