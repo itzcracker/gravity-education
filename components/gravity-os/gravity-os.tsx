@@ -2,10 +2,11 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import {
-  ChevronLeft, ChevronRight, Gamepad2, Globe2, Grid2X2, LockKeyhole, Maximize2, Minus, MonitorCog, NotebookPen, Plus, Power, RefreshCw, Search, Settings, SlidersHorizontal, Sparkles, X, HatGlasses, Gem, Music,
+  ChevronLeft, ChevronRight, Gamepad2, Globe2, Grid2X2, LockKeyhole, Maximize2, Minus, MonitorCog, NotebookPen, Plus, Power, RefreshCw, Search, Settings, SlidersHorizontal, Sparkles, X, HatGlasses, Gem, Music, Bot,
 } from 'lucide-react'
+import GravityAI from './gravity-ai'
 
-type AppId = 'browser' | 'games' | 'settings' | 'spotify' | 'minecraft' | 'notes'
+type AppId = 'browser' | 'games' | 'settings' | 'spotify' | 'minecraft' | 'notes' | 'gravityai'
 type WindowState = { id: AppId; x: number; y: number; width: number; height: number; minimized?: boolean; fullscreen?: boolean; restore?: { x: number; y: number; width: number; height: number } }
 
 type AppDefinition = { id: AppId; label: string; icon: typeof Globe2; color: string; image?: string }
@@ -25,6 +26,7 @@ const apps: AppDefinition[] = [
   { id: 'browser', label: 'Browser', icon: HatGlasses, color: 'from-sky-400 to-blue-600', image: 'https://i.ibb.co/qFkfMKBP/image-1.png' },
   { id: 'games', label: 'PS5', icon: Gamepad2, color: 'from-violet-400 to-indigo-600', image: 'https://upload.wikimedia.org/wikipedia/commons/9/91/PlayStation_App_Icon.jpg' },
   { id: 'minecraft', label: 'Minecraft', icon: Gem, color: 'from-pink-400 to-purple-500', image: 'https://upload.wikimedia.org/wikipedia/commons/f/fb/Minecraft-creeper-face.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original' },
+  { id: 'gravityai', label: 'GravityAI', icon: Bot, color: 'from-orange-300 to-rose-500', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe_7n3WJOHmk5styrrW7rJe0cfs20bnm09DW_KUX8sr5C4hdE0R_weW--p&s=10' },
   { id: 'notes', label: 'Notes', icon: NotebookPen, color: 'from-pink-400 to-purple-500', image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_Notes_icon.svg/3840px-Apple_Notes_icon.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail' },
   { id: 'settings', label: 'Settings', icon: Settings, color: 'from-slate-300 to-slate-500', image: 'https://upload.wikimedia.org/wikipedia/commons/archive/e/ea/20200720144619%21Settings_%28iOS%29.png' },
 ]
@@ -38,6 +40,7 @@ function AppIcon({ app, onClick, size = 'normal' }: { app: AppDefinition; onClic
 }
 
 function WindowContent({ id, browserUrl, setBrowserUrl }: { id: AppId; browserUrl: string; setBrowserUrl: (v: string) => void }) {
+  if (id === 'gravityai') return <div className="h-full"><GravityAI /></div>
   if (id === 'browser') return <div className="flex h-full flex-col bg-white/95 text-slate-800"><div className="flex items-center gap-2 border-b border-slate-200 bg-slate-100/90 p-2"><button className="rounded p-1 text-slate-500 hover:bg-slate-200"><ChevronLeft size={16}/></button><button className="rounded p-1 text-slate-500 hover:bg-slate-200"><ChevronRight size={16}/></button><button className="rounded p-1 text-slate-500 hover:bg-slate-200" onClick={() => setBrowserUrl(browserUrl)}><RefreshCw size={14}/></button><div className="flex min-w-0 flex-1 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-1.5 shadow-sm"><LockKeyhole size={12} className="text-emerald-500"/><span className="min-w-0 flex-1 truncate text-xs text-slate-600">gravity://</span><Search size={13} className="text-slate-400" /></div><Plus size={16} className="text-slate-500"/></div><iframe title="GravityOS Browser" src={browserUrl.startsWith('http') ? browserUrl : `https://gravityxfrogies.mooo.com/calculus/`} className="min-h-0 flex-1 border-0" /></div>
   if (id === 'games') return <div className="h-full bg-[#11121c] p-3"><div className="relative h-full overflow-hidden rounded-xl bg-gradient-to-br from-indigo-950 via-[#201643] to-slate-950"><iframe title="PS5 Game Center" src="https://cracerloveps5.lovable.app/" className="size-full border-0" /><div className="pointer-events-none absolute inset-x-0 top-0 flex items-center justify-between bg-gradient-to-b from-black/70 to-transparent px-4 py-3 text-[10px] font-semibold tracking-[.2em] text-white/70"><span></span><span>ONLINE</span></div></div></div>
   if (id === 'spotify' || id === 'minecraft') return <div className="h-full bg-slate-950"><iframe title={id === 'spotify' ? 'Spotify' : 'Minecraft'} src={id === 'spotify' ? 'https://cineosweb.github.io/script/Apps/Spotify/index.html#/home' : 'https://redflamz.github.io/Eaglercraft-Launcher/'} className="size-full border-0" /></div>
