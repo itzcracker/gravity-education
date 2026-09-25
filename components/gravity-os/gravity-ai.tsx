@@ -43,7 +43,7 @@ function MessageCopyButton({ text }: { text: string }) {
     setCopied(true)
     window.setTimeout(() => setCopied(false), 1600)
   }
-  return <button type="button" onClick={copyMessage} aria-label="Copy message" className="ml-auto flex items-center gap-1 rounded-md px-1.5 py-1 text-[10px] text-[#9a9087] opacity-0 transition group-hover:opacity-100 hover:bg-[#f1ece6] hover:text-[#4e4740]">{copied ? <Check size={12} /> : <Copy size={12} />}{copied ? 'Copied' : 'Copy'}</button>
+  return <button type="button" onClick={copyMessage} aria-label="Copy message" className="flex items-center gap-1 rounded-md px-2 py-1 text-[10px] text-[#9a9087] opacity-0 transition group-hover:opacity-100 hover:bg-[#f1ece6] hover:text-[#4e4740]">{copied ? <Check size={12} /> : <Copy size={12} />}{copied ? 'Copied' : 'Copy'}</button>
 }
 
 function CodeBlock({ code }: { code: string }) {
