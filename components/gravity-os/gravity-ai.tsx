@@ -8,7 +8,7 @@ import { Check, ChevronDown, Copy, Send, User } from 'lucide-react'
 const CLAUDE_LOGO = 'https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Claude_AI_symbol.svg/1280px-Claude_AI_symbol.svg.png'
 
 const models = [
-  { label: 'Gravity Atlas', id: 'inclusionai/ling-3.0-flash-fin:free', note: 'Fast and thoughtful' },
+  { label: 'Gravity Atlas', id: 'inclusionai/ling-3.0-flash-sante:free', note: 'Fast and thoughtful' },
   { label: 'Gravity Zeno', id: 'stealth/space-bunny-alpha', note: 'Creative and exploratory' },
 ]
 
