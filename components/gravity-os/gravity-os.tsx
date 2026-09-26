@@ -88,7 +88,7 @@ export default function GravityOS() {
   }
   const reloadSystem = () => window.location.reload()
   const appInfo = (id: AppId) => apps.find(a => a.id === id)!
-  const windowIsFullscreen = windows.some(window => window.fullscreen)
+  const windowIsFullscreen = windows.some(window => window.fullscreen && !window.minimized)
   return <main className="gravity-os relative h-dvh w-full overflow-hidden select-none" style={{ backgroundImage: `url(${wallpaper})` }} onContextMenu={(e) => { e.preventDefault(); setContext({x:e.clientX,y:e.clientY}) }} onClick={() => { if (context) setContext(null) }}>
     <div className="absolute inset-0 bg-black/10" />
     <div className="snowfall" aria-hidden="true">{snowflakes.map(flake => <span key={flake.id} style={{ left: `${flake.left}%`, animationDelay: `${flake.delay}s`, animationDuration: `${flake.duration}s`, width: flake.size, height: flake.size }} />)}</div>
