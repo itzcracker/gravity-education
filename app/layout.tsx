@@ -5,6 +5,7 @@ import { TabIdentity } from '@/components/tab-identity'
 
 export const metadata: Metadata = {
   title: 'GravityOS',
+  metadataBase: new URL('https://gravityos.local'),
   description: '',
   generator: '',
   icons: {

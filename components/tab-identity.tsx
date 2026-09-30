@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 const SITE_TITLE = 'GravityOS'
 const SITE_ICON = '/gravity-logo.png'
 const AWAY_TITLE = 'Google'
-const AWAY_ICON = 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/cropped_circle_image-XQDjTwZ1qMF0JMzWjaopLseNhLHGHv.png'
+const AWAY_ICON = '/google-favicon.png'
 
 export function TabIdentity() {
   useEffect(() => {
