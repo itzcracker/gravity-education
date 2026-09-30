@@ -15,7 +15,8 @@ export function TabIdentity() {
 
     const updateIdentity = () => {
       document.title = document.visibilityState === 'hidden' ? AWAY_TITLE : SITE_TITLE
-      icon.href = document.visibilityState === 'hidden' ? AWAY_ICON : SITE_ICON
+      const nextIcon = document.visibilityState === 'hidden' ? AWAY_ICON : SITE_ICON
+      icon.href = `${nextIcon}${nextIcon.includes('?') ? '&' : '?'}tab=${document.visibilityState}-${Date.now()}`
     }
 
     updateIdentity()
