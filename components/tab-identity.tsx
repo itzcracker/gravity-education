@@ -1,0 +1,31 @@
+'use client'
+
+import { useEffect } from 'react'
+
+const SITE_TITLE = 'GravityOS'
+const SITE_ICON = '/gravity-logo.png'
+const AWAY_TITLE = 'Google'
+const AWAY_ICON = 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/cropped_circle_image-XQDjTwZ1qMF0JMzWjaopLseNhLHGHv.png'
+
+export function TabIdentity() {
+  useEffect(() => {
+    const icon = document.querySelector<HTMLLinkElement>('link[rel="icon"]') ?? document.createElement('link')
+    icon.rel = 'icon'
+    document.head.appendChild(icon)
+
+    const updateIdentity = () => {
+      document.title = document.visibilityState === 'hidden' ? AWAY_TITLE : SITE_TITLE
+      icon.href = document.visibilityState === 'hidden' ? AWAY_ICON : SITE_ICON
+    }
+
+    updateIdentity()
+    document.addEventListener('visibilitychange', updateIdentity)
+    window.addEventListener('focus', updateIdentity)
+    return () => {
+      document.removeEventListener('visibilitychange', updateIdentity)
+      window.removeEventListener('focus', updateIdentity)
+    }
+  }, [])
+
+  return null
+}

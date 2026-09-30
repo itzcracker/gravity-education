@@ -1,6 +1,7 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
+import { TabIdentity } from '@/components/tab-identity'
 
 export const metadata: Metadata = {
   title: 'GravityOS',
@@ -28,6 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
+        <TabIdentity />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
