@@ -170,7 +170,7 @@
 .window { position: absolute; overflow: hidden; border-radius: 13px; background: rgba(30, 31, 39, .88); box-shadow: 0 25px 70px rgba(0,0,0,.42), 0 0 0 1px rgba(255,255,255,.18); transition: opacity .24s ease, transform .34s cubic-bezier(.2,.8,.2,1), filter .24s ease; }
 .window:not(.active) { filter: brightness(.78); }
 .window.minimized { opacity: 0; transform: translateY(220px) scale(.35); pointer-events: none; }
-.window.fullscreen { left: 0 !important; top: 0 !important; width: 100vw !important; height: 100dvh !important; max-width: none !important; max-height: none !important; border-radius: 0; transition: opacity .24s ease, transform .34s cubic-bezier(.2,.8,.2,1), filter .24s ease, border-radius .34s ease; }
+.window.fullscreen { position: fixed !important; inset: 0 !important; width: 100vw !important; height: 100dvh !important; max-width: none !important; max-height: none !important; border-radius: 0; overflow: hidden; transition: opacity .24s ease, transform .34s cubic-bezier(.2,.8,.2,1), filter .24s ease, border-radius .34s ease; }
 .dock { transition: opacity .35s ease, transform .45s cubic-bezier(.2,.8,.2,1), filter .35s ease; }
 .dock.dock-hidden { opacity: 0; transform: translate(-50%, 120%); pointer-events: none; filter: blur(8px); }
 .titlebar { height: 38px; display: flex; align-items: center; justify-content: space-between; padding: 0 12px; background: rgba(40, 42, 52, .82); border-bottom: 1px solid rgba(255,255,255,.1); cursor: grab; }
