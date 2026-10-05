@@ -7,7 +7,7 @@ import {
 import GravityAI from './gravity-ai'
 import Finder from './finder'
 
-type AppId = 'finder' | 'browser' | 'games' | 'settings' | 'spotify' | 'minecraft' | 'notes' | 'gravityai' | 'gnmath'
+type AppId = 'finder' | 'arcade' | 'browser' | 'games' | 'settings' | 'spotify' | 'minecraft' | 'notes' | 'gravityai' | 'gnmath'
 type WindowState = { id: AppId; x: number; y: number; width: number; height: number; minimized?: boolean; fullscreen?: boolean; restore?: { x: number; y: number; width: number; height: number } }
 
 type AppDefinition = { id: AppId; label: string; icon: typeof Globe2; color: string; image?: string }
@@ -24,6 +24,7 @@ const wallpaperOptions = [
 ]
 const apps: AppDefinition[] = [
   { id: 'finder', label: 'Finder', icon: Globe2, color: 'from-sky-400 to-blue-600', image: 'https://i.ibb.co/HDK9VKBg/ffinder.jpg' },
+  { id: 'arcade', label: 'Arcade', icon: Gamepad2, color: 'from-fuchsia-400 to-violet-600', image: 'https://i.ibb.co/pvWyQKrf/arcade-3e59a8e1.png' },
   { id: 'spotify', label: 'Spotify', icon: Music, color: 'from-yellow-300 to-orange-400', image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Spotify_App_Logo.svg/3840px-Spotify_App_Logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail' },
   { id: 'browser', label: 'Browser', icon: HatGlasses, color: 'from-sky-400 to-blue-600', image: 'https://i.ibb.co/qFkfMKBP/image-1.png' },
   { id: 'games', label: 'PS5', icon: Gamepad2, color: 'from-violet-400 to-indigo-600', image: 'https://upload.wikimedia.org/wikipedia/commons/9/91/PlayStation_App_Icon.jpg' },
@@ -44,6 +45,7 @@ function AppIcon({ app, onClick, size = 'normal' }: { app: AppDefinition; onClic
 
 function WindowContent({ id, browserUrl, setBrowserUrl, onOpenApp }: { id: AppId; browserUrl: string; setBrowserUrl: (v: string) => void; onOpenApp?: (id: string) => void }) {
   if (id === 'finder') return <Finder onOpenApp={(appId) => onOpenApp?.(appId)} />
+  if (id === 'arcade') return <iframe title="Arcade" src="https://itz1.vercel.app/" className="size-full border-0 bg-slate-950" />
   if (id === 'gravityai') return <div className="h-full"><GravityAI /></div>
   if (id === 'gnmath') return <iframe title="gn-math" src="https://itzcracker.github.io/gn-math/" className="size-full border-0 bg-white" />
   if (id === 'browser') return <div className="flex h-full flex-col bg-white/95 text-slate-800"><div className="flex items-center gap-2 border-b border-slate-200 bg-slate-100/90 p-2"><button className="rounded p-1 text-slate-500 hover:bg-slate-200"><ChevronLeft size={16}/></button><button className="rounded p-1 text-slate-500 hover:bg-slate-200"><ChevronRight size={16}/></button><button className="rounded p-1 text-slate-500 hover:bg-slate-200" onClick={() => setBrowserUrl(browserUrl)}><RefreshCw size={14}/></button><div className="flex min-w-0 flex-1 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-1.5 shadow-sm"><LockKeyhole size={12} className="text-emerald-500"/><span className="min-w-0 flex-1 truncate text-xs text-slate-600">gravity://</span><Search size={13} className="text-slate-400" /></div><Plus size={16} className="text-slate-500"/></div><iframe title="GravityOS Browser" src={browserUrl.startsWith('http') ? browserUrl : `https://gravityxfrogies.mooo.com/calculus/`} className="min-h-0 flex-1 border-0" /></div>
