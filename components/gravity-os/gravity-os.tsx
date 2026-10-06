@@ -21,6 +21,10 @@ const wallpaperOptions = [
   { name: 'Purple Aesthetic', url: 'https://i.ibb.co/cSV9CQBF/purple-aesthetic-3840x2160-18775.jpg' },
   { name: 'Chisa Wuthering', url: 'https://i.ibb.co/jkyrCk0z/chisa-wuthering-3840x2160-24840.jpg' },
   { name: 'Takanashi Hoshino', url: 'https://i.ibb.co/bj01ByZy/takanashi-hoshino-3840x2160-25273.jpg' },
+  { name: 'Pink Sky Lakeside', url: 'https://i.ibb.co/SXfLX9kg/lakeside-pink-sky-sunset-minimal-art-gradient-background-3840x2160-4584.png' },
+  { name: 'Palm Tree Sunrise', url: 'https://i.ibb.co/LdQf4SLW/sunrise-palm-trees-mist-foggy-tropical-body-of-water-3840x2160-4052.jpg' },
+  { name: 'Golden Gate Bridge', url: 'https://i.ibb.co/6J7DM6dP/golden-gate-bridge-3840x2160-16304.jpg' },
+  { name: 'Kirby Halloween', url: 'https://i.ibb.co/G4CGRQNT/kirby-halloween-3840x2160-15421.jpg' },
 ]
 const apps: AppDefinition[] = [
   { id: 'finder', label: 'Finder', icon: Globe2, color: 'from-sky-400 to-blue-600', image: 'https://i.ibb.co/HDK9VKBg/ffinder.jpg' },
