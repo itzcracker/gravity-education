@@ -8,8 +8,8 @@ import { Check, ChevronDown, Copy, Lightbulb, ListChecks, Menu, PanelLeftClose, 
 const GRAVITY_LOGO = 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image%20%281%29-Photoroom-s6WyDcuVhEKPFqngW4lEDUZQTeNbuD.png'
 
 const models = [
-  { label: 'Gravity Light', id: 'inclusionai/ling-3.0-flash-sante:free', note: 'Fast and thoughtful' },
-  { label: 'Gravity Zeno', id: 'stealth/space-bunny-alpha', note: 'Creative and exploratory' },
+  { label: 'Gravity Light', id: 'apodex/apodex-1.1-mini:free', note: 'Fast and thoughtful' },
+  { label: 'Gravity Zenon', id: 'inclusionai/ling-3.1-flash', note: 'Creative and exploratory' },
 ]
 
 function renderInline(text: string) {
