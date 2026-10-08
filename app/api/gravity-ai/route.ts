@@ -11,7 +11,7 @@ const openrouter = createOpenAI({
 })
 
 export async function POST(request: Request) {
-  const { messages, model = 'inclusionai/ling-3.0-flash-sante:free' } = await request.json()
+  const { messages, model = 'apodex/apodex-1.1-mini:free' } = await request.json()
   const result = streamText({
     model: openrouter(model),
     system: 'You are GravityAI, a concise, thoughtful assistant inside GravityOS. Be helpful, warm, and clear.',
