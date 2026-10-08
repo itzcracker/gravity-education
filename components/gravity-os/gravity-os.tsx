@@ -21,10 +21,10 @@ const wallpaperOptions = [
   { name: 'Purple Aesthetic', url: 'https://i.ibb.co/cSV9CQBF/purple-aesthetic-3840x2160-18775.jpg' },
   { name: 'Chisa Wuthering', url: 'https://i.ibb.co/jkyrCk0z/chisa-wuthering-3840x2160-24840.jpg' },
   { name: 'Takanashi Hoshino', url: 'https://i.ibb.co/bj01ByZy/takanashi-hoshino-3840x2160-25273.jpg' },
-  { name: 'Pink Sky Lakeside', url: 'https://i.ibb.co/SXfLX9kg/lakeside-pink-sky-sunset-minimal-art-gradient-background-3840x2160-4584.png' },
-  { name: 'Palm Tree Sunrise', url: 'https://i.ibb.co/LdQf4SLW/sunrise-palm-trees-mist-foggy-tropical-body-of-water-3840x2160-4052.jpg' },
-  { name: 'Golden Gate Bridge', url: 'https://i.ibb.co/6J7DM6dP/golden-gate-bridge-3840x2160-16304.jpg' },
-  { name: 'Kirby Halloween', url: 'https://i.ibb.co/G4CGRQNT/kirby-halloween-3840x2160-15421.jpg' },
+  { name: 'Pink Sky Lakeside', url: 'https://i.ibb.co/2JLWxq4/lakeside-pink-sky-sunset-minimal-art-gradient-background-3840x2160-4584.png' },
+  { name: 'Surreal Cherry', url: 'https://i.ibb.co/whS5f7qR/surreal-cherry-3840x2160-26233.jpg' },
+  { name: 'The Shorekeeper', url: 'https://i.ibb.co/JFmDPpyX/the-shorekeeper-3840x2160-25523.jpg' },
+  { name: 'Windows Dark', url: 'https://i.ibb.co/jk8Jz7fM/windows-11-dark-mode-abstract-background-black-background-3840x2160-8710.png' },
 ]
 const apps: AppDefinition[] = [
   { id: 'finder', label: 'Finder', icon: Globe2, color: 'from-sky-400 to-blue-600', image: 'https://i.ibb.co/HDK9VKBg/ffinder.jpg' },
