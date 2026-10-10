@@ -10,7 +10,7 @@ const PROXY_ORIGIN = 'https://gravity-nmq7.onrender.com/?goto='
 // Keep the real destination in tab state and address chrome. Only the iframe
 // source is rewritten through the proxy so in-page navigation stays proxied.
 function proxyUrl(url: string) {
-  return `${PROXY_ORIGIN}/?url=${encodeURIComponent(url)}`
+  return `${PROXY_ORIGIN}${encodeURIComponent(url)}`
 }
 
 function resolveInput(value: string) {
@@ -18,7 +18,7 @@ function resolveInput(value: string) {
   if (!input) return START_URL
   if (/^(https?:\/\/|gravity:\/\/)/i.test(input)) return input
   if (/^[^\s]+\.[^\s]+$/.test(input)) return `https://${input}`
-  return `Gravity//search=${encodeURIComponent(input)}`
+  return `${encodeURIComponent(input)}`
 }
 
 export default function Browser() {
