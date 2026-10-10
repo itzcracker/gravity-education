@@ -18,7 +18,7 @@ function resolveInput(value: string) {
   if (!input) return START_URL
   if (/^(https?:\/\/|gravity:\/\/)/i.test(input)) return input
   if (/^[^\s]+\.[^\s]+$/.test(input)) return `https://${input}`
-  return `gravity://${encodeURIComponent(input)}`
+  return `gravity://search=${encodeURIComponent(input)}`
 }
 
 export default function Browser() {
