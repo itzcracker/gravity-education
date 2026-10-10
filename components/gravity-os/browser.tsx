@@ -18,7 +18,7 @@ function resolveInput(value: string) {
   if (!input) return START_URL
   if (/^(https?:\/\/|gravity:\/\/)/i.test(input)) return input
   if (/^[^\s]+\.[^\s]+$/.test(input)) return `https://${input}`
-  return `https://www.google.com/search?q=${encodeURIComponent(input)}`
+  return `gravity://${encodeURIComponent(input)}`
 }
 
 export default function Browser() {
@@ -56,7 +56,7 @@ export default function Browser() {
     return () => window.removeEventListener('keydown', onKeyDown)
   })
 
-  const startCards = useMemo(() => ['Search the web'], [])
+  const startCards = useMemo(() => [], [])
   return <div className="flex h-full min-h-0 flex-col overflow-hidden bg-[#101216] text-white">
     <div className="border-b border-white/10 bg-[#17191f]/90 px-2 pt-2 backdrop-blur-xl">
       <div className="flex min-w-0 items-end gap-1">
