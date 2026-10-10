@@ -5,7 +5,7 @@ import { ArrowLeft, ArrowRight, Globe2, Home, LockKeyhole, Plus, RefreshCw, Sear
 
 type Tab = { id: number; title: string; url: string; history: string[]; historyIndex: number; loading: boolean }
 const START_URL = 'gravity://'
-const PROXY_ORIGIN = 'https://gravity-nmq7.onrender.com'
+const PROXY_ORIGIN = 'https://gravity-nmq7.onrender.com/?goto='
 
 // Keep the real destination in tab state and address chrome. Only the iframe
 // source is rewritten through the proxy so in-page navigation stays proxied.
@@ -18,7 +18,7 @@ function resolveInput(value: string) {
   if (!input) return START_URL
   if (/^(https?:\/\/|gravity:\/\/)/i.test(input)) return input
   if (/^[^\s]+\.[^\s]+$/.test(input)) return `https://${input}`
-  return `gravity://search=${encodeURIComponent(input)}`
+  return `Gravity//search=${encodeURIComponent(input)}`
 }
 
 export default function Browser() {
