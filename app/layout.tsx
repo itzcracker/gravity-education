@@ -9,8 +9,8 @@ export const metadata: Metadata = {
   description: '',
   generator: '',
   icons: {
-    icon: '/gravity-browser-logo.png',
-    apple: '/gravity-browser-logo.png',
+    icon: '/gravity-favicon-logo.png',
+    apple: '/gravity-favicon-logo.png',
   },
 }
 

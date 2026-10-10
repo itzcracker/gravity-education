@@ -30,7 +30,7 @@ const apps: AppDefinition[] = [
   { id: 'finder', label: 'Finder', icon: Globe2, color: 'from-sky-400 to-blue-600', image: 'https://i.ibb.co/HDK9VKBg/ffinder.jpg' },
   { id: 'arcade', label: 'Arcade', icon: Gamepad2, color: 'from-fuchsia-400 to-violet-600', image: 'https://i.ibb.co/pvWyQKrf/arcade-3e59a8e1.png' },
   { id: 'spotify', label: 'Spotify', icon: Music, color: 'from-yellow-300 to-orange-400', image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Spotify_App_Logo.svg/3840px-Spotify_App_Logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail' },
-  { id: 'browser', label: 'Browser', icon: HatGlasses, color: 'from-sky-400 to-blue-600', image: '/gravity-browser-logo.png' },
+  { id: 'browser', label: 'Browser', icon: HatGlasses, color: 'from-sky-400 to-blue-600', image: '/browser-logo.png' },
   { id: 'games', label: 'PS5', icon: Gamepad2, color: 'from-violet-400 to-indigo-600', image: 'https://upload.wikimedia.org/wikipedia/commons/9/91/PlayStation_App_Icon.jpg' },
   { id: 'minecraft', label: 'Minecraft', icon: Gem, color: 'from-pink-400 to-purple-500', image: 'https://upload.wikimedia.org/wikipedia/commons/f/fb/Minecraft-creeper-face.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original' },
   { id: 'gravityai', label: 'GravityAI', icon: Bot, color: 'from-orange-300 to-rose-500', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe_7n3WJOHmk5styrrW7rJe0cfs20bnm09DW_KUX8sr5C4hdE0R_weW--p&s=10' },
