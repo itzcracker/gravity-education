@@ -8,8 +8,8 @@ type FinderFolder = 'Recents' | 'Applications' | 'Desktop' | 'Downloads' | 'Game
 
 const folderItems: Record<Exclude<FinderFolder, 'Recents'>, FinderItem[]> = {
   Applications: [
+    { id: 'browser', name: 'Browser', kind: 'app', appId: 'browser', icon: 'https://i.ibb.co/qLPyn3bm/image-7.png' },
     { id: 'spotify', name: 'Spotify', kind: 'app', appId: 'spotify', icon: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Spotify_App_Logo.svg/3840px-Spotify_App_Logo.svg.png' },
-    { id: 'browser', name: 'Browser', kind: 'app', appId: 'browser', icon: 'https://i.ibb.co/1fbhH8jb/safari-1.png' },
     { id: 'settings', name: 'Settings', kind: 'app', appId: 'settings', icon: 'https://upload.wikimedia.org/wikipedia/commons/archive/e/ea/20200720144619%21Settings_%28iOS%29.png' },
     { id: 'notes', name: 'Notes', kind: 'app', appId: 'notes', icon: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_Notes_icon.svg/3840px-Apple_Notes_icon.svg.png' },
     { id: 'gnmath', name: 'gn-math', kind: 'app', appId: 'gnmath', icon: 'https://i.ibb.co/Z1YgPhPX/gnmathlogo.png' },
