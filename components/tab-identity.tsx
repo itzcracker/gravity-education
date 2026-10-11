@@ -3,7 +3,7 @@
 import { useEffect } from 'react'
 
 const SITE_TITLE = 'GravityOS'
-const SITE_ICON = '/gravity-favicon-logo.png'
+const SITE_ICON = '/gravity-favicon-logo.png?v=orange-dragon'
 const AWAY_TITLE = 'Google'
 const AWAY_ICON = '/google-favicon.png'
 
