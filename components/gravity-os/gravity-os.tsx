@@ -4,7 +4,6 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import {
   ChevronLeft, ChevronRight, Gamepad2, Globe2, Grid2X2, LockKeyhole, Maximize2, Minus, MonitorCog, NotebookPen, Plus, Power, RefreshCw, Search, Settings, Sparkles, X, HatGlasses, Gem, Music, Bot,
 } from 'lucide-react'
-import GravityAI from './gravity-ai'
 import Finder from './finder'
 import Browser from './browser'
 
@@ -51,7 +50,7 @@ function AppIcon({ app, onClick, size = 'normal' }: { app: AppDefinition; onClic
 function WindowContent({ id, browserUrl, setBrowserUrl, onOpenApp }: { id: AppId; browserUrl: string; setBrowserUrl: (v: string) => void; onOpenApp?: (id: string) => void }) {
   if (id === 'finder') return <Finder onOpenApp={(appId) => onOpenApp?.(appId)} />
   if (id === 'arcade') return <div className="relative size-full min-h-0 overflow-hidden bg-slate-950"><iframe title="Arcade" src="https://itz1.vercel.app/" scrolling="no" className="absolute inset-0 block size-full border-0 bg-slate-950 [contain:strict] [overscroll-behavior:none]" /></div>
-  if (id === 'gravityai') return <div className="h-full"><GravityAI /></div>
+  if (id === 'gravityai') return <iframe title="GravityAI" src="https://ixl67.b-cdn.net/" className="size-full border-0 bg-black" />
   if (id === 'gnmath') return <iframe title="gn-math" src="https://itzcracker.github.io/gn-math/" className="size-full border-0 bg-white" />
   if (id === 'browser') return <Browser />
   if (id === 'games') return <div className="h-full bg-[#11121c] p-3"><div className="relative h-full overflow-hidden rounded-xl bg-gradient-to-br from-indigo-950 via-[#201643] to-slate-950"><iframe title="PS5 Game Center" src="https://crackerloveps5.lovable.app" className="size-full border-0" /><div className="pointer-events-none absolute inset-x-0 top-0 flex items-center justify-between bg-gradient-to-b from-black/70 to-transparent px-4 py-3 text-[10px] font-semibold tracking-[.2em] text-white/70"><span></span><span>ONLINE</span></div></div></div>
