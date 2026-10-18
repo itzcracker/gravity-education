@@ -49,7 +49,7 @@ function AppIcon({ app, onClick, size = 'normal' }: { app: AppDefinition; onClic
 
 function WindowContent({ id, browserUrl, setBrowserUrl, onOpenApp }: { id: AppId; browserUrl: string; setBrowserUrl: (v: string) => void; onOpenApp?: (id: string) => void }) {
   if (id === 'finder') return <Finder onOpenApp={(appId) => onOpenApp?.(appId)} />
-  if (id === 'arcade') return <div className="relative size-full min-h-0 overflow-hidden bg-slate-950"><iframe title="Arcade" src="https://itz1.vercel.app/" scrolling="no" className="absolute inset-0 block size-full border-0 bg-slate-950 [contain:strict] [overscroll-behavior:none]" /></div>
+  if (id === 'arcade') return <div className="relative size-full min-h-0 overflow-auto bg-slate-950"><iframe title="Arcade" src="https://itz1.vercel.app/" scrolling="auto" className="absolute inset-0 block size-full border-0 bg-slate-950" /></div>
   if (id === 'gravityai') return <iframe title="GravityAI" src="https://ixl67.b-cdn.net/" className="size-full border-0 bg-black" />
   if (id === 'gnmath') return <iframe title="gn-math" src="https://itzcracker.github.io/gn-math/" className="size-full border-0 bg-white" />
   if (id === 'browser') return <Browser />
